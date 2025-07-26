@@ -1,4 +1,4 @@
-/* Custom CSS for Fiesta PA - Built with Bootstrap */
+/* Custom CSS for Fiesta PA - Inspired by Spanish Colors */
 
 /* Basic CSS Reset and Body Styles */
 * {
@@ -14,17 +14,23 @@ body {
     padding-top: 76px; /* Account for fixed navbar */
 }
 
-/* Custom Navbar Styles */
+/* Custom Navbar Styles - Spanish inspired colors */
 .custom-navbar {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #e53e3e 0%, #d83b01 100%);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
+}
+
+.custom-navbar.scrolled {
+    background: linear-gradient(135deg, #c53030 0%, #b91c1c 100%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .custom-navbar .navbar-brand h1 {
     font-size: 2rem;
     font-weight: bold;
     color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .custom-navbar .nav-link {
@@ -34,6 +40,8 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin: 0 0.2rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
 .custom-navbar .nav-link:hover,
@@ -52,71 +60,163 @@ section {
     scroll-margin-top: 80px;
 }
 
-/* Home Section */
+/* Home Section - Spanish vibes */
 #home {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 50%, #fbb6ce 100%);
     min-height: 70vh;
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ff6b35" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ff6b35" stop-opacity="0"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>') repeat;
+    opacity: 0.5;
+}
+
+#home .container {
+    position: relative;
+    z-index: 1;
 }
 
 #home .display-4 {
-    color: #667eea;
+    color: #e53e3e;
     font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+#home .lead {
+    color: #744210;
+    font-size: 1.2rem;
 }
 
 /* About Section */
+#about {
+    background-color: #fffaf0;
+}
+
 #about h2 {
-    color: #667eea;
+    color: #e53e3e;
     font-weight: bold;
 }
 
-/* Events Section */
+#about p {
+    color: #744210;
+    font-size: 1.1rem;
+}
+
+/* Events Section - Menu style */
+#events {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffeaa7 100%);
+}
+
 #events h2 {
-    color: #667eea;
+    color: #e53e3e;
     font-weight: bold;
+}
+
+#events .lead {
+    color: #744210;
 }
 
 .card {
     border: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(229, 62, 62, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(145deg, #ffffff 0%, #fff8f0 100%);
+    border-left: 4px solid #e53e3e;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 25px rgba(229, 62, 62, 0.2);
+    border-left: 4px solid #d83b01;
 }
 
 .card-title {
-    color: #667eea;
+    color: #e53e3e;
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+.card-text {
+    color: #744210;
 }
 
 /* Contact Section */
+#contact {
+    background-color: #fffaf0;
+}
+
 #contact h2 {
-    color: #667eea;
+    color: #e53e3e;
     font-weight: bold;
 }
 
+#contact h5 {
+    color: #d83b01;
+    font-weight: 600;
+}
+
+#contact p, #contact li {
+    color: #744210;
+}
+
+.form-control {
+    border: 2px solid #fed7d7;
+    border-radius: 8px;
+}
+
 .form-control:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    border-color: #e53e3e;
+    box-shadow: 0 0 0 0.2rem rgba(229, 62, 62, 0.25);
 }
 
 .btn-primary {
-    background-color: #667eea;
-    border-color: #667eea;
+    background: linear-gradient(135deg, #e53e3e 0%, #d83b01 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #764ba2;
-    border-color: #764ba2;
+    background: linear-gradient(135deg, #c53030 0%, #b91c1c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(229, 62, 62, 0.3);
 }
 
 /* Footer Styles */
 footer {
+    background: linear-gradient(135deg, #2d1b1b 0%, #1a1a1a 100%);
     margin-top: 0;
+}
+
+footer p {
+    color: #fed7d7;
+}
+
+/* Spanish-inspired accent elements */
+.spanish-accent {
+    background: linear-gradient(45deg, #e53e3e, #fbb6ce, #fed7d7);
+    background-size: 600% 600%;
+    animation: spanishGradient 3s ease infinite;
+}
+
+@keyframes spanishGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Animations */
@@ -155,6 +255,10 @@ section:nth-of-type(4) { animation-delay: 0.4s; }
     .display-4 {
         font-size: 2rem !important;
     }
+    
+    .card {
+        margin-bottom: 20px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -169,4 +273,35 @@ section:nth-of-type(4) { animation-delay: 0.4s; }
     .custom-navbar .navbar-brand h1 {
         font-size: 1.3rem;
     }
+    
+    #home .display-4 {
+        font-size: 1.8rem !important;
+    }
+}
+
+/* Additional Spanish-inspired elements */
+.menu-highlight {
+    background: linear-gradient(135deg, #e53e3e 0%, #fbb6ce 100%);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.spanish-border {
+    border: 3px solid #e53e3e;
+    border-radius: 10px;
+    position: relative;
+}
+
+.spanish-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #e53e3e, #fbb6ce, #fed7d7, #e53e3e);
+    border-radius: 10px;
+    z-index: -1;
 }
