@@ -1,8 +1,10 @@
 // Custom JavaScript for Fiesta PA - Enhanced with Bootstrap
 
-// Smooth scrolling for navigation links
+// JavaScript for Fiesta PA website
+// Bootstrap integration and smooth scrolling functionality
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Select all navigation links that start with #
+    // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
     
     navLinks.forEach(link => {
@@ -13,22 +15,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                // Close mobile menu if open
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
-                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-                    bsCollapse.hide();
-                }
-                
-                // Smooth scroll to target section
                 targetSection.scrollIntoView({
                     behavior: 'smooth'
                 });
+                
+                // Close mobile menu if open
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
             }
         });
     });
     
-    // Highlight active navigation link on scroll
+    // Active link highlighting on scroll
     window.addEventListener('scroll', function() {
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('nav a');
@@ -52,16 +53,61 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add scroll effect to navbar
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.custom-navbar');
-        if (window.scrollY > 50) {
-            navbar.style.backgroundColor = 'rgba(102, 126, 234, 0.95)';
-        } else {
-            navbar.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-        }
+    // Contact form validation and submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Add Bootstrap validation classes
+            if (this.checkValidity()) {
+                // Form is valid - you can add your form submission logic here
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+                this.classList.remove('was-validated');
+            } else {
+                // Form is invalid
+                this.classList.add('was-validated');
+            }
+        });
+    }
+    
+    // Intersection Observer for animations when elements come into viewport
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections for animations
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        observer.observe(section);
     });
 });
+
+// Animation function for counters (if needed)
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    
+    const timer = setInterval(() => {
+        start += increment;
+        element.textContent = Math.floor(start);
+        
+        if (start >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        }
+    }, 16);
+}
 
 // Function to animate counters (example usage)
 function animateCounter(element, target, duration = 2000) {
