@@ -1,0 +1,172 @@
+/* Custom CSS for Fiesta PA - Built with Bootstrap */
+
+/* Basic CSS Reset and Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding-top: 76px; /* Account for fixed navbar */
+}
+
+/* Custom Navbar Styles */
+.custom-navbar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.custom-navbar .navbar-brand h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.custom-navbar .nav-link {
+    color: white !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 0 0.2rem;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    background-color: rgba(255,255,255,0.2);
+    color: white !important;
+}
+
+/* Section Padding */
+.section-padding {
+    padding: 80px 0;
+}
+
+/* Custom Section Styles */
+section {
+    scroll-margin-top: 80px;
+}
+
+/* Home Section */
+#home {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+#home .display-4 {
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* About Section */
+#about h2 {
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Events Section */
+#events h2 {
+    color: #667eea;
+    font-weight: bold;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.card-title {
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Contact Section */
+#contact h2 {
+    color: #667eea;
+    font-weight: bold;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.btn-primary {
+    background-color: #667eea;
+    border-color: #667eea;
+}
+
+.btn-primary:hover {
+    background-color: #764ba2;
+    border-color: #764ba2;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 0;
+}
+
+/* Animations */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+section:nth-of-type(1) { animation-delay: 0.1s; }
+section:nth-of-type(2) { animation-delay: 0.2s; }
+section:nth-of-type(3) { animation-delay: 0.3s; }
+section:nth-of-type(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom responsive adjustments */
+@media (max-width: 768px) {
+    .custom-navbar .navbar-brand h1 {
+        font-size: 1.5rem;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    #home {
+        min-height: 50vh;
+    }
+    
+    .display-4 {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .section-padding {
+        padding: 40px 0;
+    }
+    
+    .custom-navbar .navbar-brand h1 {
+        font-size: 1.3rem;
+    }
+}
