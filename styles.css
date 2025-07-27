@@ -1,4 +1,4 @@
-/* Custom CSS for Fiesta PA - Inspired by Spanish Colors */
+/* Custom CSS for Fiestapa - Inspired by Spanish Colors */
 
 /* Basic CSS Reset and Body Styles */
 * {
@@ -8,7 +8,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: #333;
     padding-top: 76px; /* Account for fixed navbar */
@@ -16,21 +16,33 @@ body {
 
 /* Custom Navbar Styles - Spanish inspired colors */
 .custom-navbar {
-    background: linear-gradient(135deg, #e53e3e 0%, #d83b01 100%);
+    background: linear-gradient(135deg, rgb(224, 96, 33) 0%, rgb(204, 86, 29) 100%);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
 }
 
 .custom-navbar.scrolled {
-    background: linear-gradient(135deg, #c53030 0%, #b91c1c 100%);
+    background: linear-gradient(135deg, rgb(194, 76, 23) 0%, rgb(174, 66, 19) 100%);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .custom-navbar .navbar-brand h1 {
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 700;
     color: white;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+}
+
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    /* filter: brightness(0) invert(1); Makes logo white */
+    transition: all 0.3s ease;
+}
+
+.navbar-logo:hover {
+    transform: scale(1.05);
 }
 
 .custom-navbar .nav-link {
@@ -47,7 +59,7 @@ body {
 .custom-navbar .nav-link:hover,
 .custom-navbar .nav-link.active {
     background-color: rgba(255,255,255,0.2);
-    color: white !important;
+    color: rgb(255, 209, 103) !important;
 }
 
 /* Section Padding */
@@ -60,9 +72,14 @@ section {
     scroll-margin-top: 80px;
 }
 
-/* Home Section - Spanish vibes */
+/* Home Section - Spanish vibes with hero image */
 #home {
-    background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 50%, #fbb6ce 100%);
+    background: linear-gradient(rgba(255, 245, 245, 0.8), rgba(254, 215, 215, 0.8), rgba(251, 182, 206, 0.8)), 
+                url('images/logo/hero_image.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     min-height: 70vh;
     display: flex;
     align-items: center;
@@ -76,24 +93,26 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ff6b35" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ff6b35" stop-opacity="0"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>') repeat;
-    opacity: 0.5;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
 }
 
 #home .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 #home .display-4 {
-    color: #e53e3e;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    color: white;
+    font-weight: 800;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+    letter-spacing: -1px;
 }
 
 #home .lead {
-    color: #744210;
+    color: white;
     font-size: 1.2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
 /* About Section */
@@ -102,8 +121,9 @@ section {
 }
 
 #about h2 {
-    color: #e53e3e;
-    font-weight: bold;
+    color: rgb(204, 65, 37);
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 #about p {
@@ -117,8 +137,9 @@ section {
 }
 
 #events h2 {
-    color: #e53e3e;
-    font-weight: bold;
+    color: rgb(204, 65, 37);
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 #events .lead {
@@ -127,23 +148,24 @@ section {
 
 .card {
     border: none;
-    box-shadow: 0 4px 6px rgba(229, 62, 62, 0.1);
+    box-shadow: 0 4px 6px rgba(204, 65, 37, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: linear-gradient(145deg, #ffffff 0%, #fff8f0 100%);
-    border-left: 4px solid #e53e3e;
+    border-left: 4px solid rgb(204, 65, 37);
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(229, 62, 62, 0.2);
-    border-left: 4px solid #d83b01;
+    box-shadow: 0 8px 25px rgba(204, 65, 37, 0.2);
+    border-left: 4px solid rgb(184, 55, 27);
 }
 
 .card-title {
-    color: #e53e3e;
-    font-weight: bold;
+    color: rgb(204, 65, 37);
+    font-weight: 700;
     text-transform: uppercase;
     font-size: 1.1rem;
+    letter-spacing: 1px;
 }
 
 .card-text {
@@ -156,8 +178,9 @@ section {
 }
 
 #contact h2 {
-    color: #e53e3e;
-    font-weight: bold;
+    color: rgb(204, 65, 37);
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 #contact h5 {
@@ -175,12 +198,12 @@ section {
 }
 
 .form-control:focus {
-    border-color: #e53e3e;
-    box-shadow: 0 0 0 0.2rem rgba(229, 62, 62, 0.25);
+    border-color: rgb(204, 65, 37);
+    box-shadow: 0 0 0 0.2rem rgba(204, 65, 37, 0.25);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #e53e3e 0%, #d83b01 100%);
+    background: linear-gradient(135deg, rgb(204, 65, 37) 0%, rgb(184, 55, 27) 100%);
     border: none;
     border-radius: 8px;
     padding: 12px 30px;
@@ -191,9 +214,9 @@ section {
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #c53030 0%, #b91c1c 100%);
+    background: linear-gradient(135deg, rgb(174, 55, 27) 0%, rgb(154, 45, 17) 100%);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(229, 62, 62, 0.3);
+    box-shadow: 0 4px 10px rgba(204, 65, 37, 0.3);
 }
 
 /* Footer Styles */
@@ -206,9 +229,20 @@ footer p {
     color: #fed7d7;
 }
 
+.footer-logo {
+    height: 30px;
+    width: auto;
+    filter: brightness(0) invert(1); /* Makes logo white */
+}
+
+footer .text-white:hover {
+    color: #fed7d7 !important;
+    transition: color 0.3s ease;
+}
+
 /* Spanish-inspired accent elements */
 .spanish-accent {
-    background: linear-gradient(45deg, #e53e3e, #fbb6ce, #fed7d7);
+    background: linear-gradient(45deg, rgb(204, 65, 37), #fbb6ce, #fed7d7);
     background-size: 600% 600%;
     animation: spanishGradient 3s ease infinite;
 }
@@ -244,12 +278,21 @@ section:nth-of-type(4) { animation-delay: 0.4s; }
         font-size: 1.5rem;
     }
     
+    .navbar-logo {
+        height: 32px;
+    }
+    
+    .footer-logo {
+        height: 24px;
+    }
+    
     .section-padding {
         padding: 60px 0;
     }
     
     #home {
         min-height: 50vh;
+        background-attachment: scroll; /* Better performance on mobile */
     }
     
     .display-4 {
@@ -274,22 +317,43 @@ section:nth-of-type(4) { animation-delay: 0.4s; }
         font-size: 1.3rem;
     }
     
+    .navbar-logo {
+        height: 28px;
+    }
+    
+    .footer-logo {
+        height: 20px;
+    }
+    
+    #home {
+        background-attachment: scroll;
+        min-height: 60vh;
+    }
+    
     #home .display-4 {
         font-size: 1.8rem !important;
+    }
+    
+    #home::before {
+        background: rgba(0, 0, 0, 0.4); /* Darker overlay on mobile for better text contrast */
     }
 }
 
 /* Additional Spanish-inspired elements */
 .menu-highlight {
-    background: linear-gradient(135deg, #e53e3e 0%, #fbb6ce 100%);
+    background: linear-gradient(135deg, rgb(204, 65, 37) 0%, #fbb6ce 100%);
     color: white;
     padding: 2px 8px;
     border-radius: 4px;
     font-weight: 600;
 }
 
+.text-fiesta {
+    color: rgb(204, 65, 37) !important;
+}
+
 .spanish-border {
-    border: 3px solid #e53e3e;
+    border: 3px solid rgb(204, 65, 37);
     border-radius: 10px;
     position: relative;
 }
@@ -301,7 +365,7 @@ section:nth-of-type(4) { animation-delay: 0.4s; }
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #e53e3e, #fbb6ce, #fed7d7, #e53e3e);
+    background: linear-gradient(45deg, rgb(204, 65, 37), #fbb6ce, #fed7d7, rgb(204, 65, 37));
     border-radius: 10px;
     z-index: -1;
 }
