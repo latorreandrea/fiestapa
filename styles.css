@@ -152,12 +152,23 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: linear-gradient(145deg, #ffffff 0%, #fff8f0 100%);
     border-left: 4px solid rgb(204, 65, 37);
+    overflow: hidden;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(204, 65, 37, 0.2);
     border-left: 4px solid rgb(184, 55, 27);
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
 }
 
 .card-title {
@@ -368,6 +379,11 @@ section:nth-of-type(4) { animation-delay: 0.4s; }
 
 .text-fiesta {
     color: rgb(204, 65, 37) !important;
+}
+
+.bg-fiesta {
+    background-color: rgb(204, 65, 37) !important;
+    color: white;
 }
 
 .spanish-border {
