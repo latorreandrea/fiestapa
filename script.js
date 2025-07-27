@@ -53,8 +53,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Intersection Observer for fade-in animations
+    const fadeInObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observe all sections for fade-in animations
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        fadeInObserver.observe(section);
+    });
+    
     // Contact form validation and submission
-    const contactForm = document.getElementById('contactForm');
+    const contactForm = document.getElementById('contactForm') || document.querySelector('#contact form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -71,26 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // Intersection Observer for animations when elements come into viewport
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
-        });
-    }, observerOptions);
-
-    // Observe all sections for animations
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        observer.observe(section);
-    });
 });
 
 // Animation function for counters (if needed)
@@ -108,90 +106,3 @@ function animateCounter(element, target, duration = 2000) {
         }
     }, 16);
 }
-
-// Function to animate counters (example usage)
-function animateCounter(element, target, duration = 2000) {
-    let start = 0;
-    const increment = target / (duration / 16);
-    
-    const timer = setInterval(() => {
-        start += increment;
-        element.textContent = Math.floor(start);
-        
-        if (start >= target) {
-            element.textContent = target;
-            clearInterval(timer);
-        }
-    }, 16);
-}
-
-// Intersection Observer for animations when elements enter viewport
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-            
-            // Animate cards with staggered delay
-            if (entry.target.classList.contains('card')) {
-                const cards = entry.target.parentElement.parentElement.querySelectorAll('.card');
-                cards.forEach((card, index) => {
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, index * 100);
-                });
-            }
-        }
-    });
-}, observerOptions);
-
-// Initialize observers when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    const cards = document.querySelectorAll('.card');
-    
-    // Observe sections for animations
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-    
-    // Observe cards for staggered animations
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-});
-
-// Contact form handling (basic example)
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.querySelector('#contact form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name') || document.getElementById('name').value;
-            const email = formData.get('email') || document.getElementById('email').value;
-            const message = formData.get('message') || document.getElementById('message').value;
-            
-            // Basic validation
-            if (!name || !email || !message) {
-                alert('Please fill in all fields.');
-                return;
-            }
-            
-            // Here you would typically send the data to your server
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
-    }
-});
